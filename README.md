@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Cara Install & Setup
 
 1.silahkan clone atau download repository ini.<br>
@@ -37,3 +38,9 @@ Contoh : <br>
 ### Credit To :
 
 1.[Harviacode ](http://harviacode.com/) <br> 2.[AdminLTE](https://adminlte.io/)<br>
+=======
+
+### Credit To : 
+1.[Harviacode ](http://harviacode.com/) <br>
+2.[AdminLTE](https://adminlte.io/)<br>
+>>>>>>> 3c5c303a3b8428b8fc8c64ec35e5e4c56386efbe

@@ -363,7 +363,7 @@ CREATE TABLE `view_reservasi` (
 --
 DROP TABLE IF EXISTS `data_produk`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `data_produk`  AS  select `produk`.`kode_produk` AS `kode_produk`,`produk`.`id_produk` AS `id_produk`,`produk`.`nama_produk` AS `nama_produk`,`kategori`.`nama_kategori` AS `nama_kategori`,`produk`.`harga` AS `harga`,`produk`.`foto_produk` AS `foto_produk`,`produk`.`id_restoran` AS `id_restoran` from (`produk` join `kategori` on((`produk`.`id_kategori` = `kategori`.`id_kategori`))) ;
+CREATE  VIEW `data_produk`  AS  select `produk`.`kode_produk` AS `kode_produk`,`produk`.`id_produk` AS `id_produk`,`produk`.`nama_produk` AS `nama_produk`,`kategori`.`nama_kategori` AS `nama_kategori`,`produk`.`harga` AS `harga`,`produk`.`foto_produk` AS `foto_produk`,`produk`.`id_restoran` AS `id_restoran` from (`produk` join `kategori` on((`produk`.`id_kategori` = `kategori`.`id_kategori`))) ;
 
 -- --------------------------------------------------------
 
@@ -372,7 +372,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_keranjang`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_keranjang`  AS  select `keranjang_user`.`id_keranjang` AS `id_keranjang`,`keranjang_user`.`email` AS `email`,`keranjang_user`.`id_produk` AS `id_produk`,`produk`.`nama_produk` AS `nama_produk`,`produk`.`kode_produk` AS `kode_produk`,`produk`.`harga` AS `harga`,`keranjang_user`.`id_resto` AS `id_resto`,`keranjang_user`.`no_meja` AS `no_meja`,sum(`keranjang_user`.`qty`) AS `sub_qty`,`kategori`.`nama_kategori` AS `nama_kategori` from ((`keranjang_user` join `produk` on((`keranjang_user`.`id_produk` = `produk`.`id_produk`))) join `kategori` on((`produk`.`id_kategori` = `kategori`.`id_kategori`))) group by `keranjang_user`.`id_produk` ;
+CREATE  VIEW `view_keranjang`  AS  select `keranjang_user`.`id_keranjang` AS `id_keranjang`,`keranjang_user`.`email` AS `email`,`keranjang_user`.`id_produk` AS `id_produk`,`produk`.`nama_produk` AS `nama_produk`,`produk`.`kode_produk` AS `kode_produk`,`produk`.`harga` AS `harga`,`keranjang_user`.`id_resto` AS `id_resto`,`keranjang_user`.`no_meja` AS `no_meja`,sum(`keranjang_user`.`qty`) AS `sub_qty`,`kategori`.`nama_kategori` AS `nama_kategori` from ((`keranjang_user` join `produk` on((`keranjang_user`.`id_produk` = `produk`.`id_produk`))) join `kategori` on((`produk`.`id_kategori` = `kategori`.`id_kategori`))) group by `keranjang_user`.`id_produk` ;
 
 -- --------------------------------------------------------
 
@@ -381,7 +381,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `view_reservasi`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_reservasi`  AS  select `booking`.`id_book` AS `id_book`,`booking`.`email` AS `email`,`booking`.`tanggal` AS `tanggal`,`booking`.`nomor_booking` AS `nomor_booking`,`booking`.`meja` AS `meja`,`restoran`.`nama_restoran` AS `nama_restoran`,`tbl_user_mobile`.`nama` AS `nama`,`booking`.`status` AS `status` from ((`booking` join `restoran` on((`booking`.`id_restoran` = `restoran`.`id_restoran`))) join `tbl_user_mobile` on((`booking`.`email` = `tbl_user_mobile`.`email`))) ;
+CREATE  VIEW `view_reservasi`  AS  select `booking`.`id_book` AS `id_book`,`booking`.`email` AS `email`,`booking`.`tanggal` AS `tanggal`,`booking`.`nomor_booking` AS `nomor_booking`,`booking`.`meja` AS `meja`,`restoran`.`nama_restoran` AS `nama_restoran`,`tbl_user_mobile`.`nama` AS `nama`,`booking`.`status` AS `status` from ((`booking` join `restoran` on((`booking`.`id_restoran` = `restoran`.`id_restoran`))) join `tbl_user_mobile` on((`booking`.`email` = `tbl_user_mobile`.`email`))) ;
 
 --
 -- Indexes for dumped tables
