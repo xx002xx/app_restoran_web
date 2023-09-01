@@ -375,7 +375,6 @@ DROP TABLE IF EXISTS `view_keranjang`;
 CREATE  VIEW `view_keranjang`  AS  select `keranjang_user`.`id_keranjang` AS `id_keranjang`,`keranjang_user`.`email` AS `email`,`keranjang_user`.`id_produk` AS `id_produk`,`produk`.`nama_produk` AS `nama_produk`,`produk`.`kode_produk` AS `kode_produk`,`produk`.`harga` AS `harga`,`keranjang_user`.`id_resto` AS `id_resto`,`keranjang_user`.`no_meja` AS `no_meja`,sum(`keranjang_user`.`qty`) AS `sub_qty`,`kategori`.`nama_kategori` AS `nama_kategori` from ((`keranjang_user` join `produk` on((`keranjang_user`.`id_produk` = `produk`.`id_produk`))) join `kategori` on((`produk`.`id_kategori` = `kategori`.`id_kategori`))) group by `keranjang_user`.`id_produk` ;
 
 -- --------------------------------------------------------
-
 --
 -- Struktur untuk view `view_reservasi`
 --
